@@ -73,3 +73,11 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Others
+.idea/
+.vscode/
+.DS_Store
+*.tmp
+*.log
+*.bak
