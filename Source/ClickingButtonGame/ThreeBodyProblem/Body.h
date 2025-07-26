@@ -19,6 +19,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Called when the object is destroyed or removed from the level
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
@@ -28,14 +31,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UMaterialInstanceDynamic* BodyMaterial;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Physic Properties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Physic Properties")
 	float Mass = 10000.0f;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Physic Properties")
 	float GravitationalConstant = 6.67430e-11f; // Gravitational constant in m^3 kg^-1 s^-2
 
 	// Initial velocity of the body
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Physic Properties")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Physic Properties")
 	FVector InitialVelocity = FVector::ZeroVector;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Physic Properties")
@@ -47,8 +50,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Physic Properties")
 	FVector Velocity;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Physic Properties")
+	float RotationSpeed = 0.0f; // degrees per second
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Physic Properties")
-	float RotationSpeed = 10.0f; // degrees per second
+	float MinimumRotationSpeed = -100.0f; // degrees per second
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Physic Properties")
+	float MaximumRotationSpeed = 100.0f; // degrees per second
 
 	UFUNCTION()
 	void ApplyForce(FVector Force);

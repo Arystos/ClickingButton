@@ -44,6 +44,13 @@ TArray<ABody*> AThreeBodyProblemGameMode::FillArrayOfBodies()
 	return Bodies;
 }
 
+TArray<ABody*> AThreeBodyProblemGameMode::RecalculateBodies()
+{
+	Bodies.Empty();
+	FillArrayOfBodies();
+	return Bodies;
+}
+
 void AThreeBodyProblemGameMode::InitializeOrbit(ABody* BodyA, ABody* BodyB)
 {
 	if (BodyA && BodyB)

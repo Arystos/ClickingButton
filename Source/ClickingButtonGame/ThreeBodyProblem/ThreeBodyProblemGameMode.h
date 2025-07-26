@@ -30,7 +30,13 @@ public:
 	/// @brief Fills the Bodies array with all Body actors present in the level.
 	UFUNCTION(BlueprintCallable, Category = "Physics")
 	TArray<ABody*> FillArrayOfBodies();
-
+	
+	/// @brief Recalculate the bodies in the level and update the Bodies array.
+	UFUNCTION(BlueprintCallable, Category= "Physics")
+	TArray<ABody*> RecalculateBodies();
+	
+	UE_DEPRECATED(0, "Use RecalculateBodies instead")
+	/// @brief Recalculate the bodies in the level and update the Bodies array.
 	UFUNCTION(BlueprintCallable, Category = "Physics")
 	void InitializeOrbit(ABody* BodyA, ABody* BodyB);
 

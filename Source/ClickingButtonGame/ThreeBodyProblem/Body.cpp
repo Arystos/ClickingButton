@@ -19,6 +19,8 @@ ABody::ABody()
 	BodyMesh->SetSimulatePhysics(true);
 	BodyMesh->SetLinearDamping(0.0f);
 	BodyMesh->SetAngularDamping(0.0f);
+	BodyMesh->SetNotifyRigidBodyCollision(true);
+	BodyMesh->SetCollisionProfileName(TEXT("PhysicsActor"));
 
 	/*
 	// Create and setup the mesh component
@@ -43,9 +45,23 @@ ABody::ABody()
 void ABody::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// Initialize the velocity with the initial velocity
 	Velocity = InitialVelocity;
+	RotationSpeed = FMath::RandRange(MinimumRotationSpeed, MaximumRotationSpeed);
+}
+
+void ABody::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	// Call RecalculateBodies to update the Bodies array in the game mode
+	if (AThreeBodyProblemGameMode* GameMode = Cast<AThreeBodyProblemGameMode>(GetWorld()->GetAuthGameMode()))
+	{
+		GameMode->RecalculateBodies();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to cast to AThreeBodyProblemGameMode"));
+	}
 }
 
 void ABody::ApplyForce(FVector Force)
