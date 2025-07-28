@@ -22,8 +22,7 @@ Observe how they orbit, interact, collide, and explode beautifully in space.
 
 ---
 
-![2025-07-28 12-47-28 00_00_51_13 Still002](https://github.com/user-attachments/assets/453a9fe0-3bcd-4558-a7ea-336af93e8d82)
-
+![2025-07-28 12-47-28 00_03_28_48 Still005](https://github.com/user-attachments/assets/38e760f5-683c-46b2-ba00-30a3fd40154b)
 
 ##  Project Structure
 
@@ -65,6 +64,8 @@ Observe how they orbit, interact, collide, and explode beautifully in space.
 
 ---
 
+![2025-07-28 12-47-28 00_00_51_13 Still002](https://github.com/user-attachments/assets/453a9fe0-3bcd-4558-a7ea-336af93e8d82)
+
 ##  Why This Structure?
 
 - Heavy logic is handled in C++ for performance, especially physics via `Tick`.
@@ -81,7 +82,7 @@ Observe how they orbit, interact, collide, and explode beautifully in space.
 
 ---
 
-## Final Thoughts
+![2025-07-28 12-47-28 00_03_43_23 Still004](https://github.com/user-attachments/assets/cc3126ac-550a-4fd6-8991-e9653c64646e)
 
 This is not just about clicking a button.  
 It's about observing how your actions shape a dynamic system.  
