@@ -5,6 +5,9 @@
 
 ---
 
+![2025-07-28 12-47-28 00_00_11_09 Still001](https://github.com/user-attachments/assets/c30703c3-8683-472e-8086-f74da90c0e04)
+
+
 ##  Main Features
 This project simulates gravitational interactions between celestial bodies in space, divided into:
 
@@ -18,6 +21,9 @@ Wait a few seconds and the next body spawned will be different.
 Observe how they orbit, interact, collide, and explode beautifully in space.
 
 ---
+
+![2025-07-28 12-47-28 00_00_51_13 Still002](https://github.com/user-attachments/assets/453a9fe0-3bcd-4558-a7ea-336af93e8d82)
+
 
 ##  Project Structure
 
