@@ -1,1 +1,85 @@
-Paperna
+##  Basic Controls
+- **WASD** – Move  
+- **Mouse Movement** – Look Around  
+- **E** – Click the button to spawn celestial bodies  
+
+---
+
+##  Main Features
+This project simulates gravitational interactions between celestial bodies in space, divided into:
+
+- **Stars**  
+- **Planets**  
+- **Asteroids**  
+
+Click the button at the center of the scene to spawn a random celestial body.  
+Wait a few seconds and the next body spawned will be different.
+
+Observe how they orbit, interact, collide, and explode beautifully in space.
+
+---
+
+##  Project Structure
+
+### C++ Code
+
+- **Body**  
+  Manages physical properties: mass, velocity, rotation, etc.  
+  A global gravitational constant can be customized to adjust attraction strength.
+
+- **ThreeBodyProblemGameMode**  
+  Controls gravitational simulation and body positions each frame.  
+  Named after the *Three-Body Problem*, it reproduces gravitational interactions between multiple bodies.
+
+**How it works:**
+
+- On `BeginPlay` and every time the button is pressed, it gathers all active celestial bodies (`FillArrayOfBodies`).
+- Each frame (`Tick`), the function `ApplyForces` uses Newton's Law of Gravitation (`CalculateGravitationalForces`) to compute and apply forces to every body pair, updating positions accordingly.
+
+### Blueprint Structure
+
+- **Bodies/**  
+  Includes Blueprints for Stars, Planets, and Asteroids.  
+  Contains materials, Niagara effects for collisions, and sound files (real electromagnetic data converted to sound).
+
+- **Button/**  
+  Includes the spawn button logic, animations, interaction interface, materials, and sounds.
+
+- **Cluster/**  
+  Contains data for the distant asteroid field seen in-game.  
+  Implemented using a Niagara system with low-poly asteroid meshes.  
+  Includes an unused nebula setup.
+
+- **Skybox/**  
+  Contains the skybox material and texture.
+
+- **Sounds/**  
+  Includes ambient sounds.  
+  (While space is silent, audio enhances immersion and relaxation.)
+
+---
+
+##  Why This Structure?
+
+- Heavy logic is handled in C++ for performance, especially physics via `Tick`.
+- Visual and design elements are done in Blueprints for easier prototyping and scalability.
+- Designers can easily modify parameters like gravity or material appearance.
+
+---
+
+## Optimization
+
+- Improved performance by skipping redundant body pairs in the force loop.
+- Used a single Niagara system for the asteroid cluster instead of spawning multiple actors.
+- Removed the old `InitializeOrbit` method to avoid unnecessary upfront physics calculations.
+
+---
+
+## Final Thoughts
+
+This is not just about clicking a button.  
+It's about observing how your actions shape a dynamic system.  
+Let the simulation breathe — watch as bodies slowly collide and dissolve into cosmic dust.  
+Relax, enjoy the stillness of space, and resist the urge to spam the button.
+
+---
