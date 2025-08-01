@@ -4,6 +4,7 @@
 #include "Body.h"
 
 #include "ThreeBodyProblemGameMode.h"
+#include "Subsystem/ThreeBodyProblemSubsystem.h"
 
 
 // Sets default values
@@ -47,16 +48,26 @@ void ABody::BeginPlay()
 	Super::BeginPlay();
 	Velocity = InitialVelocity;
 	RotationSpeed = FMath::RandRange(MinimumRotationSpeed, MaximumRotationSpeed);
+	
+	if (UThreeBodyProblemSubsystem* Subsystem = GetGameInstance()->GetSubsystem<UThreeBodyProblemSubsystem>())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ABody::BeginPlay: Subsystem found, adding body to subsystem"));
+		Subsystem->Bodies.Add(this);
+	}
 }
 
 void ABody::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
 
-	// Call RecalculateBodies to update the Bodies array in the game mode
+	/*// Call RecalculateBodies to update the Bodies array in the game mode
 	if (AThreeBodyProblemGameMode* GameMode = Cast<AThreeBodyProblemGameMode>(GetWorld()->GetAuthGameMode()))
 	{
 		GameMode->RecalculateBodies();
+	}*/
+	if (UThreeBodyProblemSubsystem* Subsystem = GetGameInstance()->GetSubsystem<UThreeBodyProblemSubsystem>())
+	{
+		Subsystem->Bodies.Remove(this);
 	}
 	else
 	{
