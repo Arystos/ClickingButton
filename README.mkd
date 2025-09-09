@@ -86,7 +86,7 @@ Observe how they orbit, interact, collide, and explode beautifully in space.
 
 This is not just about clicking a button.  
 It's about observing how your actions shape a dynamic system.  
-Let the simulation breathe — watch as bodies slowly collide and dissolve into cosmic dust.  
+Let the simulation breathe, watch as bodies slowly collide and dissolve into cosmic dust.  
 Relax, enjoy the stillness of space, and resist the urge to spam the button.
 
 ---
